@@ -1,0 +1,12 @@
+{
+  "name": "spotify",
+  "version": "1.0.0",
+  "description": "Proyecto de SPOTIFY con NodeJS y API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matias Amestica, Marco CAstillo, Barbara Suarez",
+  "license": "UNLICENSED"
+}
+
