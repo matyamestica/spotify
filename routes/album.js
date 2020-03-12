@@ -12,6 +12,7 @@ var api = express.Router();
 var md_auth = require('../middlewares/authenticated');
 
 api.get('/album',md_auth.ensureAuth,AlbumController.getAlbum);
+api.post('/album',md_auth.ensureAuth,AlbumController.saveAlbum);
 
 
 module.exports = api;
