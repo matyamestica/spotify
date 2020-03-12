@@ -104,6 +104,7 @@ function updatedUser(req, res) {
 function uploadImage(req, res){
     var userId = req.params.id;
     var file_name = 'no subido...';
+    
     if(req.files){
         var file_path = req.files.image.path;
         var file_split = file_path.split('\\');
