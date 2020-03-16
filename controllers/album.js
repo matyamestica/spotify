@@ -15,7 +15,6 @@ function getAlbum(req,res){
         if(err){
             res.status(500).send({message:'Error en la peticion'});
         }else{
-            
             if(!album){
                 res.status(404).send({message:'El album no existe'});
             }else{
@@ -26,7 +25,14 @@ function getAlbum(req,res){
 }
 
 function getAlbums(req,res){
-     
+     var artisId = req.params.artist;
+
+    if(!artisId){
+        var find = Album.find({}).sort('title');
+    }else{
+        var find = Album.find({artist: artisId}).sort('year');
+    }
+
 }
 
 function saveAlbum(req,res){
