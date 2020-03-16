@@ -9,7 +9,19 @@ var Album = require('../models/album');
 var Song = require('../models/song');
 
 function getSong(req, res){
-    res.status(200).send({message: 'Controlador cancion'});
+    var songId = req.params.id;
+
+    Song.findById(songId).populate({path: 'album'}).exec((err, song) => {
+        if(err){
+            res.status(500).send({message: 'Error en la petición'});
+        }else{
+            if(!song){
+                res.status(404).send({message: 'La canción no existe'});
+            }else{
+                res.status(200).send({song});
+            }
+        }
+    });
 }
 
 function saveSong(req, res){
