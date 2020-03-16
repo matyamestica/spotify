@@ -15,6 +15,7 @@ function getAlbum(req,res){
         if(err){
             res.status(500).send({message:'Error en la peticion'});
         }else{
+            
             if(!album){
                 res.status(404).send({message:'El album no existe'});
             }else{
