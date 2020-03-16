@@ -15,14 +15,18 @@ function getAlbum(req,res){
         if(err){
             res.status(500).send({message:'Error en la peticion'});
         }else{
+            
             if(!album){
                 res.status(404).send({message:'El album no existe'});
             }else{
                 res.status(200).send({album});
             }
         }
-    })
-    //res.status(200).send({message: 'Accion getAlbum'});
+    });
+}
+
+function getAlbums(req,res){
+     
 }
 
 function saveAlbum(req,res){
