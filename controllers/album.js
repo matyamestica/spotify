@@ -21,8 +21,11 @@ function getAlbum(req,res){
                 res.status(200).send({album});
             }
         }
-    })
-    //res.status(200).send({message: 'Accion getAlbum'});
+    });
+}
+
+function getAlbums(req,res){
+     
 }
 
 function saveAlbum(req,res){
