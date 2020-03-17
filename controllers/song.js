@@ -111,10 +111,53 @@ function deleteSong(req, res){
     });
 }
 
+function uploadFile(req, res){
+    var songId = req.params.id;
+    var file_name = 'no subido...';
+
+    if(req.files){
+        var file_path = req.files.file.path;
+        var file_split = file_path.split('\\');
+        var file_name = file_split[2];
+
+        var ext_split = file_name.split('\.');
+        var file_ext = ext_split[1];
+
+        if(file_ext=='mp3' || file_ext=='jpg' || file_ext=='ogg'){
+            Album.findByIdAndUpdate(songId, {file: file_name}, (err ,songUpdated) =>{
+                if(!albumUpdated){
+                    res.status(404).send({message:'No se ha podido actualizar la cancion'});
+                }else{
+                    res.status(200).send({album: songUpdated});
+                }
+            });
+        }else{
+            res.status(200).send({message:'La extencion del archivo no es valida'})
+        }
+
+    }else{
+        res.status(200).send({message:'No has subido ninguna fichero de audio...'});
+    }
+}
+
+function getSongFile(req, res){
+    var imageFile = req.params.songFile;
+    var path_file = './uploads/songs/'+imageFile;
+    fs.exists(path_file, function(exists){
+        if(exists){
+            res.sendFile(path.resolve(path_file));
+        }else{
+            res.status(200).send({message:'No existe el fichero de audio...'})
+        }
+    })
+}
+
 module.exports = {
     getSong,
     getSongs,
     saveSong,
     updateSong,
-    deleteSong
+    deleteSong,
+    uploadFile,
+    getSongFile
 };

@@ -150,7 +150,7 @@ function getImageFile(req, res){
         }else{
             res.status(200).send({message:'No existe la imagen'})
         }
-    })
+    });
 }
 
 
