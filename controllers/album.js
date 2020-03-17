@@ -32,7 +32,17 @@ function getAlbums(req,res){
     }else{
         var find = Album.find({artist: artisId}).sort('year');
     }
-
+    find.populate({path: 'artist'}).exec((err, albums) => {
+        if(err){
+            res.status(500).send({message:' Error en la peticion'});
+        }else{
+            if(!albums){
+                res.status(404).send({message:' No Hay albums'});
+            }else{
+                res.status(200).send({albums});
+            }
+        }
+    })
 }
 
 function saveAlbum(req,res){
@@ -59,9 +69,54 @@ function saveAlbum(req,res){
     });
 }
 
+function updateAlbum(req,res){
+    var albumId = req.params.id;
+    var update = req.body;
 
+    Album.findByIdAndUpdate(albumId,update,(err,albumUpdated) => {
+        if(err){
+            res.status(500).send({message: 'Error en el servidor'});
+        }else{
+            if(!albumUpdated){
+                res.status(404).send({message:'No se ha actualizado el album'});
+            }else{
+                res.status(200).send({album: albumUpdated});
+            }
+        }
+    });
+}
+
+function deleteAlbum(req, res){
+    var albumId = req.params.id;
+
+    Album.findByIdAndRemove(albumId, (err,albumRemoved) => {
+        if(err){
+            res.status(500).send({message:'Error al eliminar el album'});
+        }else{
+            if(!albumRemoved){
+                res.status(404).send({message:'El album no ha sido eliminado'});
+            }else{
+                Song.find({Album: albumRemoved._id}).remove((err,songRemoved) => {
+                    if(err){
+                        res.status(500).send({message:'Error al eliminar la cancion'});
+                    }else{
+                        if(!songRemoved){
+                            res.status(404).send({message:'La cancion no ha sido eliminada'});
+                        }else{
+                            res.status(200).send({album: albumRemoved});
+                        }
+                    }
+                });
+            }
+        }
+    });
+
+}
 
 module.exports = {
     getAlbum,
-    saveAlbum
+    saveAlbum,
+    getAlbums,
+    updateAlbum,
+    deleteAlbum
 }
