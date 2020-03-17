@@ -10,36 +10,35 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   public title = 'MUSIFY';
   public user: User;
-  public identity;
-  public token;
+  public identity: any;
+  public token: any;
 
   constructor(
-  	private _userService:UserService
+  private _userService: UserService
   ){
-    this.user = new User('','','','','','ROLE_USER','','','');
+    this.user = new User('', '', '', '', '', 'ROLE_USER', '', '', '');
   }
 
-  ngOnInit(){
+  ngOnInit() {
 
   }
 
-  public onSubmit(){
-  	console.log(this.user);
+  public onSubmit() {
+  console.log(this.user);
 
-  	this._userService.signup(this.user).subscribe(
-  		response => {
-  			console.log(response);
-  		},
-  		error => {
-  			var errorMessage = <any>error;
+  this._userService.signup(this.user).subscribe(
+    response => {
+      console.log(response);
+    },
+    error => {
+      const errorMessage = <any>error;
 
-  			if(errorMessage != null){
-  				console.log(error);
-  			}
-  		}
+      if (errorMessage != null) {
+        console.log(error);
+      }
+    }
 
-  	)
+  );
   }
-
 }
 //lineas de prueba

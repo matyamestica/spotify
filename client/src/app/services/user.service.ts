@@ -7,16 +7,16 @@ import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
 
 @Injectable()
-export class UserService{
-	
+export class UserService {
+
 	public url: string;
 
 	constructor(private _http: Http){
-		this.url= GLOBAL.url;
+		this.url = GLOBAL.url;
 	}
 
 	signup(user_to_login, gethash = null){
-		if(gethash !=null){
+		if(gethash != null){
 			user_to_login.gethash = gethash;
 
 		}
@@ -26,7 +26,7 @@ export class UserService{
 		let params = json;
 
 		let headers = new Headers({'Content Type':'application/json'});
-		
+
 		return this._http.post(this.url+'login', params, {headers: headers})
 							.map(res => res.json());
 	}
