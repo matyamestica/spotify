@@ -140,16 +140,16 @@ function uploadImage(req, res){
         var file_ext = ext_split[1];
 
         if(file_ext=='png' || file_ext=='jpg' || file_ext=='gif' || file_ext=='jpeg'){
-            User.findByIdAndUpdate(artistId, {image: file_name}, (err,artistUpdated) =>{
+            Artist.findByIdAndUpdate(artistId, {image: file_name}, (err,artistUpdated) =>{
                 if(!artistUpdated){
                     res.status(404).send({message:'No se ha podido actualizar el usuario'});
                 }else{
                     res.status(200).send({artist: artistUpdated});
                 }
             });
-            }else{
-                res.status(200).send({message:'La extencion del archivo no es valida'})
-            }
+        }else{
+            res.status(200).send({message:'La extencion del archivo no es valida'})
+        }
 
     }else{
         res.status(200).send({message:'No has subido ninguna imagen...'});
