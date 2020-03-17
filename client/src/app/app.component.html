@@ -1,3 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<div *ngIf="identity" class="navigation col-lg-1">
+  <h1>
+    {{title}}
+  </h1>
+</div>
+
+<div class="clearfix"></div>
+
+<div *ngIf="identity" class="central col-lg-11">
+  <p>Estas logueado en la aplicacion</p>
+</div>
+
+<div class="col-lg-12" *ngIf="!identity">
+  <div class="col-lg-6">
+    <h1>Identificate</h1>
+  </div>
+  
+  <div class="col-lg-6">
+    <h1>Registrate</h1>
+  </div>
+</div>
