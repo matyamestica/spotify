@@ -4,7 +4,10 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+<<<<<<< HEAD
 //import { GLOBAL } from './global';
+=======
+
 
 @Injectable()
 export class UserService {
@@ -15,7 +18,10 @@ export class UserService {
 		this.url = GLOBAL.url;
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 51dddc67d385fb12e29786bf72e2b1bf7e391112
 	signup(user_to_login, gethash = null){
 		if(gethash != null){
 			user_to_login.gethash = gethash;

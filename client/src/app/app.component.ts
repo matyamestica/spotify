@@ -1,4 +1,5 @@
 import { User } from './models/user';
+<<<<<<< HEAD
 import { Component } from '@angular/core';
 
 @Component({
@@ -15,4 +16,7 @@ export class AppComponent {
     this.user = new User('','','','','','ROLE_USER','','','');
   }
 
+=======
+
 }
+//lineas de prueba
