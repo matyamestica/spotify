@@ -14,19 +14,30 @@ export class AppComponent implements OnInit {
   public token;
 
   constructor(
-  	private _userService: UserService
+    private _userService: UserService
 
-  ){
-    this.user = new User('','','','','','ROLE_USER','','','');
+  ) {
+    this.user = new User('', '', '', '', '', 'ROLE_USER', '', '', '');
   }
 
-  ngOnInit(){
-  	var texto = this._userService.signup();
-  	console.log(texto);
+  ngOnInit() {
+
 
   }
 
-  public onSubmit(){
-  	console.log(this.user);
+  public onSubmit() {
+    console.log(this.user);
+    this._userService.signup(this.user).subscribe(
+      response => {
+        console.log(response);
+
+      },
+      error => {
+        var errorMessage = <any>error;
+        if(errorMessage != null){
+          console.log(error);
+        }
+      }
+    );
   }
 }
