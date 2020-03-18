@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   public title = 'MUSIFY';
   public user: User;
+  public user_register: User;
   public identity;
   public token;
   public errorMessage;
@@ -19,11 +20,12 @@ export class AppComponent implements OnInit {
 
   ) {
     this.user = new User('', '', '', '', '', 'ROLE_USER', '', '', '');
+    this.user_register = new User('', '', '', '', '', 'ROLE_USER', '', '', '');
   }
 
   ngOnInit() {
     this.identity = this._userService.getIdentity();
-    this.token = this._userService.getToken;
+    this.token = this._userService.getToken();
 
     console.log(this.identity);
     console.log(this.token);
@@ -97,4 +99,9 @@ export class AppComponent implements OnInit {
     this.identity = null;
     this.token = null;
   }
+
+  onSubmitRegister(){
+    console.log(this.user_register)
+  }
+
 }
