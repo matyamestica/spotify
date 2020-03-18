@@ -3,9 +3,9 @@
 
       <h1>{{titulo}}</h1>
 
-      <div *ngIf="alertUpdate">
+      <div *ngIf="alertMessage">
         <div class="alert alert-info" role="alert">
-          {{alertUpdate}}
+          {{alertMessage}}
         </div>
       </div>
         <form #userUpdateForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-10">
