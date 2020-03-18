@@ -15,6 +15,7 @@
 
 <div *ngIf="identity" class="central col-lg-11">
   <p>Estas logueado en la aplicacion</p>
+  <user-edit></user-edit>
 </div>
 
 
@@ -54,6 +55,11 @@
   <div class="col-lg-6">
 
       <h1>Registrate</h1>
+      <div *ngIf="alertRegister">
+        <div class="alert alert-info" role="alert">
+          {{alertRegister}}
+        </div>
+      </div>
         <form #registerForm="ngForm" (ngSubmit)="onSubmitRegister()" class="col-md-10">
           <p>
 
