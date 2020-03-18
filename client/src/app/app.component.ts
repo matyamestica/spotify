@@ -27,14 +27,17 @@ export class AppComponent implements OnInit {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
 
+
     console.log(this.identity);
     console.log(this.token);
+
+
 
   }
 
   public onSubmit() {
     console.log(this.user);
-    //Conseguir datos del usuario identificado
+    //Conseguir los datos del usuario identificado
     this._userService.signup(this.user).subscribe(
       response => {
         let identity = response.user;
@@ -79,14 +82,14 @@ export class AppComponent implements OnInit {
           );
         }
 
-      },
+        }
+      }
       error => {
         var errorMessage = <any>error;
 
         if(errorMessage != null){
           var body = JSON.parse(error._body);
           this.errorMessage = body.message;
-
           console.log(error);
         }
       }
@@ -100,8 +103,14 @@ export class AppComponent implements OnInit {
     this.token = null;
   }
 
+
   onSubmitRegister(){
     console.log(this.user_register)
+  }
+
+
+  onSubmitRegister(){
+    console.log(this.user_register);
   }
 
 }

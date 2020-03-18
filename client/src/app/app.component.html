@@ -22,9 +22,11 @@
       <h1>Identificate</h1>
       <div *ngIf="errorMessage">
         <div class="alert alert-info" role="alert">
-          <strong>Error </strong>{{errorMessage}}
+
+          <strong>Error</strong> {{errorMessage}}
         </div>
       </div>
+
       <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-7">
         <p>
           <label> Correo electrónico</label>
@@ -44,7 +46,9 @@
   <div class="col-lg-6">
 
       <h1>Registrate</h1>
+
         <form #registeForm="ngForm" (ngSubmit)="onSubmitRegister()" class="col-md-7">
+
           <p>
 
             <label> Nombre:</label>
@@ -52,14 +56,22 @@
             <span *ngIf="!name.valid && name.touched">
               El nombre es obligatorio
             </span>
+
+
+
           </p>
 
           <p>
 
             <label> Apellidos:</label>
+
             <input type="text" #surname="ngModel" surname="surname" [(ngModel)]="user_register.surname" class="form-control" required />
             <span *ngIf="!surname.valid && surname.touched">
               El apellido es obligatorio
+
+            <input type="text" #surname="ngModel" name="surname" [(ngModel)]="user_register.surname" class="form-control" required />
+            <span *ngIf="!surname.valid && surname.touched">
+
             </span>
           </p>
 
@@ -69,12 +81,24 @@
             <span *ngIf="!email.valid && email.touched">
               El email es obligatorio
             </span>
+
           </p>
           <p>
             <label>Contraseña</label>
             <input type="password" #password="ngModel" name="password" [(ngModel)]="user_register.password" class="form-control" required />
             <span *ngIf="!password.valid && password.touched">
               El email es obligatorio
+
+
+          </p>
+
+          <p>
+
+            <label>Contraseña</label>
+            <input type="password" #password="ngModel" name="password" [(ngModel)]="user_register.password" class="form-control" required />
+            <span *ngIf="!password.valid && password.touched">
+              La Contraseña es obligatoria
+
             </span>
           </p>
 
