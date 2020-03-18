@@ -5,25 +5,26 @@ import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
 
 @Injectable()
-export class UserService{
-	
-	public url: string;
+export class UserService {
 
-	constructor(private _http: Http){
-		this.url = GLOBAL.url;
-	}
+  public url: string;
 
-	signup(user_to_login, gethash = null){
-		if(gethash != null){
-			user_to_login.gethash = gethash;
-		}
-		let json = JSON.stringify(user_to_login);
-		let params = json;
+ constructor(private _http: Http) {
+   this.url = GLOBAL.url;
+  }
 
-		let headers = new Headers({'Content-Type':'application/json'});
+  signup(user_to_login, gethash = null) {
+    if(gethash != null){
+      user_to_login.gethash = gethash;
+    }
 
-		return this._http.post(this.url+'login', params, {headers: headers})
-						 .map(res => res.json());
-							
-	}
+
+    let json = JSON.stringify(user_to_login);
+    let params = json;
+
+    let headers = new Headers({'Content-Type':'application/json'});
+
+    return this._http.post(this.url + 'login', params, {headers: headers})
+                     .map(res => res.json());
+  }
 }
