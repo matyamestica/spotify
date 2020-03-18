@@ -6,7 +6,6 @@ import { GLOBAL } from './global';
 
 @Injectable()
 export class UserService {
-
   public identity;
   public token;
   public url: string;
@@ -37,7 +36,6 @@ export class UserService {
       this.identity = identity;
     }else{
       this.identity = null;
-
     }
     return this.identity;
   }

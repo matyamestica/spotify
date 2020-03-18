@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken;
 
-
     console.log(this.identity);
     console.log(this.token);
 
