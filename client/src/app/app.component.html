@@ -3,9 +3,15 @@
     {{title}}
   </h1>
   <span>
+<<<<<<< HEAD
     {{identity.name}} {{identity.surname}}
   </span>
   <span class="btn btn-warning" (click) = "logout()">
+=======
+      {{identity.name}} {{identity.surname}}
+  </span>
+  <span class="btn btn-dark" (click)="logout()">
+>>>>>>> ba80937d2d36e03da60616c8ebf948053455545b
         Cerrar Sesión
   </span>
 </div>
@@ -20,13 +26,20 @@
 
 <div class="col-lg-12" *ngIf="!identity">
   <div class="col-lg-6">
-    
+
       <h1>Identificate</h1>
       <div *ngIf="errorMessage">
         <div class="alert alert-info" role="alert">
+<<<<<<< HEAD
           <strong>Error</strong> {{errorMessage}}
         </div>
       </div>
+=======
+          <strong>Error </strong>{{errorMessage}}
+        </div>
+      </div>
+
+>>>>>>> ba80937d2d36e03da60616c8ebf948053455545b
       <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-7">
         <p>
 
