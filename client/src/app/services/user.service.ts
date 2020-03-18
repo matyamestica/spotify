@@ -6,6 +6,7 @@ import { GLOBAL } from './global';
 
 @Injectable()
 export class UserService {
+
   public identity;
   public token;
   public url: string;
@@ -18,7 +19,6 @@ export class UserService {
     if(gethash != null){
       user_to_login.gethash = gethash;
     }
-
 
     let json = JSON.stringify(user_to_login);
     let params = json;
@@ -33,9 +33,10 @@ export class UserService {
     let identity = JSON.parse(localStorage.getItem('identity'));
 
     if(identity != "undefined"){
-      this.identity = identity;
+        this.identity = identity;
     }else{
       this.identity = null;
+
     }
     return this.identity;
   }
@@ -47,6 +48,7 @@ export class UserService {
     }else{
       this.token = null;
     }
+
     return this.token;
 
   }
