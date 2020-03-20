@@ -1,6 +1,9 @@
 <div *ngIf="identity" class="navigation col-lg-1">
-  <h1>
-    {{title}}
+  <h1 class="head-title">
+      <a [routerLink]="['/']">
+        <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+            {{title}}
+      </a>
   </h1>
   <nav id="navigation">
     <a href="#">
@@ -8,7 +11,7 @@
       Buscar
   </a>
   <br>
-  <a href="#">
+  <a [routerLink]="['/artist', 1]">
     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
     Artistas
 </a>
@@ -36,15 +39,12 @@
   </nav>
 </div>
 
-<div class="clearfix"></div>
 
-<div *ngIf="identity" class="central col-lg-11">
-  <p>Estas logueado en la aplicacion</p>
+<div [class.hidden]="!identity" class="central col-lg-11">
   <router-outlet></router-outlet>
 </div>
 
-<h1 style="text-align: center;"></h1>
-        <div class="col-lg-8" *ngIf="!identity">
+        <div class="col-lg-11" *ngIf="!identity">
           <div class="col-lg-6">
 
               <h1 style="text-align: center;">Identificate</h1>
