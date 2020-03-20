@@ -11,7 +11,7 @@
       Buscar
   </a>
   <br>
-  <a [routerLink]="['/artist', 1]">
+  <a [routerLink]="['/artistas', 1]" [routerLinkActive]="['actived']">
     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
     Artistas
 </a>
@@ -32,7 +32,7 @@
       <span class="btn btn-warning" (click) = "logout()">
             Cerrar Sesión
       </span>
-        <a [routerLink]="['/mis-datos']">
+        <a [routerLink]="['/mis-datos']" [routerLinkActive]="['actived']">
             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
             Mis datos
         </a>

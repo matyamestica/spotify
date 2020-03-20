@@ -1,5 +1,6 @@
 import { GLOBAL } from './services/global';
 import { User } from './models/user';
+import { Router, ActivatedRoute, Params} from '@angular/router';
 
 import { UserService } from './services/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +19,10 @@ export class AppComponent implements OnInit {
   public errorMessage;
   public alertRegister;
   public url: string;
+  
   constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
     private _userService: UserService
 
   ) {
@@ -92,6 +96,7 @@ export class AppComponent implements OnInit {
     localStorage.clear();
     this.identity = null;
     this.token = null;
+    this._router.navigate(['/']);
   }
 
   onSubmitRegister(){
