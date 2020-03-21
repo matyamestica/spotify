@@ -12,7 +12,7 @@ html, body{
 }
 
 .actived {
-    border-bottom: 4px solid#84000;
+    border-bottom: 4px; solid#84000;
     padding-bottom: 4px;
 }
 .head-title{
@@ -21,4 +21,8 @@ html, body{
     text-transform: uppercase;
     margin-bottom: 25px;
     display: block;
+}
+
+.artist_image_for_edit img{
+    width: 150px;
 }

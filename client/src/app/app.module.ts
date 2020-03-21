@@ -8,6 +8,7 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { ArtistListComponent } from './components/artist-list.component';
 import { ArtistAddComponent } from './components/artist-add.component';
+import { ArtistEditComponent } from './components/artist-edit.component';
 
 
 
@@ -19,7 +20,8 @@ import { ArtistAddComponent } from './components/artist-add.component';
     HomeComponent,
     UserEditComponent,
     ArtistListComponent,
-    ArtistAddComponent
+    ArtistAddComponent,
+    ArtistEditComponent
   ],
   imports: [
     BrowserModule,
