@@ -25,7 +25,7 @@ export class ArtistAddComponent implements OnInit{
         private _route: ActivatedRoute,
         private _router: Router,
         private _userService: UserService,
-        private _artistService: ArtistService   
+        private _artistService: ArtistService
     ){
         this.titulo = 'Crear nuevo artista';
         this.identity = this._userService.getIdentity();
