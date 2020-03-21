@@ -15,13 +15,11 @@
         Buscar
       </a>
       <br>
-      <br>
       <a [routerLink]="['/artistas', 1]" [routerLinkActive]="['actived']">
 
         <span class="fa fa-star" aria-hidden="true"></span>
           Artistas
       </a>
-      <br>
       <br>
       <a href="#">
 
@@ -52,10 +50,9 @@
     <br>
     <br>
     <br>
-    <br>
     <nav id="user_logged">
       <div class="user-image">
-        <img id="image-logged" src="{{url+'get-image-user/'+identity.image}}" style="width: 100px;"/>
+        <img id="image-logged" src="{{url+'get-image-user/'+identity.image}}" class="img-redonda"/>
       </div>
       <br>
       <br>
@@ -71,8 +68,7 @@
           Mis datos
       </a>
       <br>
-      <a (click)="logout()">
-
+      <a (click)="logout()" class="btn-logout">
         <span class="fa fa-sign-out" aria-hidden="true"></span>
           Salir
       </a>
