@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   public errorMessage;
   public alertRegister;
   public url: string;
-  
+
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,

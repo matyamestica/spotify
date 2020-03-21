@@ -1,7 +1,16 @@
 html, body{
     margin: 0px;
+    padding: 0px;
     height: 100%;
     background: #eee;
+}
+
+.head-title{
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  display: block;
 }
 
 .navigation{
@@ -11,18 +20,60 @@ html, body{
     height: 100%;
 }
 
-.actived {
-    border-bottom: 4px; solid#84000;
-    padding-bottom: 4px;
-}
-.head-title{
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 25px;
+.navigation a{
+    color: #ddd;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: block;
+    text-decoration: none;
 }
 
-.artist_image_for_edit img{
-    width: 150px;
+.navigation .glyphicon{
+    font-size: 25px;
+    display: block;
+    width: 100%;
+
+}
+
+.navigation a:hover{
+  color: white;
+}
+
+.actived {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    border-bottom: 4px solid#8400;
+    padding-bottom: 4px;
+}
+
+#user_logged{
+  text-decoration: center;
+  background: #1C1C1F;
+  position: absolute;
+  bottom: 0px;
+  border-top: 1px solid#444;
+  width: 75%;
+}
+
+#user_logged .glyphicon-log-out{
+    font-size: 16px;
+}
+
+#user-logged .user-image{
+  background: #eee;
+  border-radius: 100px;
+  height: 57px;
+  width: 57px;
+  margin: 0px auto;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+#user-logged .user-image img{
+  width: 57px;
+}
+
+.btn-logout{
+  cursor: pointer;
 }
