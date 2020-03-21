@@ -124,7 +124,7 @@ function uploadImage(req, res){
         var ext_split = file_name.split('\.');
         var file_ext = ext_split[1];
 
-        if(file_ext=='png' || file_ext=='jpg' || file_ext=='gif' || file_ext=='jpeg'){
+        if(file_ext=='png' || file_ext=='jpg' || file_ext=='gif' || file_ext=='jpeg' || file_ext=='JPG'){
             Album.findByIdAndUpdate(albumId, {image: file_name}, (err ,albumUpdated) =>{
                 if(!albumUpdated){
                     res.status(404).send({message:'No se ha podido actualizar el album'});
