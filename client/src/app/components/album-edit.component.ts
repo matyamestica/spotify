@@ -1,5 +1,7 @@
+import { UploadService } from './../services/upload.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+
 
 import { GLOBAL } from '../services/global';
 import {UserService} from '../services/user.service';
@@ -11,7 +13,7 @@ import { Album } from '../models/album';
 @Component({
     selector: 'artist-edit',
     templateUrl: '../views/album-add.html',
-    providers: [UserService, AlbumService]
+    providers: [UserService, AlbumService, UploadService]
 })
 
 export class AlbumEditComponent implements OnInit{
@@ -27,7 +29,8 @@ export class AlbumEditComponent implements OnInit{
         private _route: ActivatedRoute,
         private _router: Router,
         private _userService: UserService,
-        private _albumService: AlbumService
+        private _albumService: AlbumService,
+        private _uploadService: UploadService
     ){
         this.titulo = 'Editar album';
         this.identity = this._userService.getIdentity();
@@ -70,35 +73,53 @@ export class AlbumEditComponent implements OnInit{
 
     onSubmit(){
         this._route.params.forEach((params: Params) =>{
-            let artist_id = params['artist'];
-            this.album.artist = artist_id;
+            let id = params['id'];
 
-
-            this._albumService.addAlbum(this.token, this.album).subscribe(
-                        response => {
-                            this.album = response.album;
-                            //ESTO SE CAMBIO PORQUE ARROJABA ERROR EN LA CONSOLA DE CYGWIN, ORIGINALMENTE EL OBJETO ERA ARTIST
-                            if(!response.album){
-                                this.alertMessage = 'Error en el servidor';
-                            }else{
-                                this.alertMessage = 'El album se ha creado correctamente';
-                                this.album = response.album;
-                                //this._router.navigate(['/editar-artista', response.artist._id]);
+            this._albumService.editAlbum(this.token,id, this.album).subscribe(
+            response => {
+                this.album = response.album;
+                //ESTO SE CAMBIO PORQUE ARROJABA ERROR EN LA CONSOLA DE CYGWIN, ORIGINALMENTE EL OBJETO ERA ARTIST
+                if(!response.album){
+                    this.alertMessage = 'Error en el servidor';
+                }else{
+                    this.alertMessage = 'El album se ha actualizado correctamente';
+                    if(!this.filesToUpload){
+                        //redirigir
+                        this._router.navigate(['/artista', response.album.artist]);
+                    }else{
+                      //subir la imagen
+                        this._uploadService.makeFileRequest(this.url+'upload-image-album/'+id, [], this.filesToUpload, this.token,'image')
+                        .then(
+                            (result) => {
+                              this._router.navigate(['/artista', response.album.artist]);
+                            },
+                            (error) => {
+                              console.log(error);
                             }
-                        },
-                        error => {
-                        var errorMessage = <any>error;
-
-                        if(errorMessage != null){
-                        var body = JSON.parse(error._body);
-                        this.alertMessage = body.message;
-
-                        console.log(error);
-                        }
+                        );
                     }
+
+
+                }
+            },
+                        error => {
+                            var errorMessage = <any>error;
+
+                            if(errorMessage != null){
+                            var body = JSON.parse(error._body);
+                            this.alertMessage = body.message;
+
+                            console.log(error);
+                            }
+                        }
             );
 
         });
+
+    }
+    public filesToUpload: Array<File>;
+    fileChangeEvent(fileInput: any){
+      this.filesToUpload = <Array<File>>fileInput.target.files;
 
     }
 }

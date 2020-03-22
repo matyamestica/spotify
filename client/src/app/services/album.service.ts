@@ -19,7 +19,7 @@ export class AlbumService {
     'Authorization':token
     });
     let options = new RequestOptions({headers:headers});
-    return this._http.get(this.url+'album/+id,option')
+    return this._http.get(this.url+'album/'+id, options)
                      .map(res => res.json());
   }
 
