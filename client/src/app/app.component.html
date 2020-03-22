@@ -8,44 +8,42 @@
       </a>
     </h1>
     <nav id="navigation">
-      <br>
+
       <a href="#">
 
         <span class="fa fa-search" aria-hidden="true"></span>
         Buscar
       </a>
-      <br>
+
       <a [routerLink]="['/artistas', 1]" [routerLinkActive]="['actived']">
 
         <span class="fa fa-star" aria-hidden="true"></span>
           Artistas
       </a>
-      <br>
+
       <a href="#">
 
         <span class="fa fa-book" aria-hidden="true"></span>
         Albums
       </a>
     </nav>
-    
+
     <nav id="user_logged">
       <div class="user-image">
         <img id="image-logged" src="{{url+'get-image-user/'+identity.image}}" class="img-redonda"/>
       </div>
-      <br>
-      <br>
+
       <span id="identity_name">
         {{identity.name}}
       </span>
 
 
-      <br>
-      <br>
+
       <a [routerLink]="['/mis-datos']" [routerLinkActive]="['actived']">
         <span class="fa fa-user" aria-hidden="true"></span>
           Mis datos
       </a>
-      <br>
+
       <a (click)="logout()" class="btn-logout">
         <span class="fa fa-sign-out" aria-hidden="true"></span>
           Salir

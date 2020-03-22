@@ -89,21 +89,21 @@ export class ArtistListComponent implements OnInit{
     onDeleteArtist(id){
         this._artistService.deleteArtist(this.token, id).subscribe(
             response => {
-                if(!response.artists){
+                if (!response.artists){
                     alert('Error en el servidor');
-                }else{
-                    this.getArtists();    
+                }else {
+                    this.getArtists();
                 }
-        },
-        error => {
-        var errorMessage = <any>error;
+            },
+            error => {
+                var errorMessage = <any>error;
 
-        if(errorMessage != null){
-        var body = JSON.parse(error._body);
-        //this.errorMessage = body.message;
-        console.log(error);
-        }
-    }
-        )
+                if(errorMessage != null){
+                    var body = JSON.parse(error._body);
+                    //this.errorMessage = body.message;
+                    console.log(error);
+                }
+            }
+        );
     }
 }
