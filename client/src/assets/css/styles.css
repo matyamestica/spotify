@@ -90,6 +90,8 @@ html, body{
     padding: 0px;
     margin-top: 30px;
     list-style: none;
+    min-height: 800px;
+
 }
 .artist-item,
 .album-item{
