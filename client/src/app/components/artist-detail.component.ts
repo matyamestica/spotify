@@ -46,7 +46,8 @@ export class ArtistDetailComponent implements OnInit{
                             if(!response.artist){
                                 this._router.navigate(['/']);
                             }else{
-                                this.artist = response.artist;    
+                                this.artist = response.artist;
+                                //  Sacar los albums del artista  
                             }
                     },
                     error => {
