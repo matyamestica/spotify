@@ -4,18 +4,26 @@
     <a [routerLink]="['/crear-artista']" *ngIf="identity && identity.role == 'ROLE_ADMIN'"class="btn btn-default">
         Añadir artista
     </a>
- 
+
 <ul class="pagination pull right">
     <li><a [routerLink]="['/artistas', prev_page]">&laquo;</a></li>
     <li><a [routerLink]="['/artistas', next_page]">&raquo;</a></li>
 </ul>
 </div>
 <div class="clear-fix"></div>
-<ul class="artist-list" *ngIf="identity">
-        <li *ngFor="let artist of artists" class="cl-lg-3 artist item">
-            <div class="artist-image">
-                <img src="{{ url + 'get-image-artist/' + artist.image }}" style="width:100px;"/>
-            </div>
+
+
+<div class="artist-list" *ngIf="identity">
+
+        <td style= "center"*ngFor="let artist of artists" class="cl-lg-3 artist item" >
+
+            <tr class="artist-image">
+              <td>
+                <img  src="{{ url + 'get-image-artist/' + artist.image }}" class="img-artist"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+
+            </tr>
+
             <div class="artist-name">
                 <a [routerLink]="['/artista', artist._id]">
             {{ artist.name }}
@@ -37,5 +45,9 @@
                     
                 </div>
             </div>
-        </li>
-</ul>
+
+        </td>
+
+
+</div>
+

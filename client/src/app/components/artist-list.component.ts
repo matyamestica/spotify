@@ -24,8 +24,8 @@ export class ArtistListComponent implements OnInit{
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
-        private _artistService: ArtistService,  
-        private _userService: UserService   
+        private _artistService: ArtistService,
+        private _userService: UserService
     ){
         this.titulo = 'Artistas';
         this.identity = this._userService.getIdentity();
@@ -60,7 +60,7 @@ export class ArtistListComponent implements OnInit{
                     if(!response.artists){
                         this._router.navigate(['/']);
                     }else{
-                        this.artists = response.artists;    
+                        this.artists = response.artists;
                     }
             },
             error => {
