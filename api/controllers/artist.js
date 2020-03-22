@@ -101,7 +101,7 @@ function deleteArtist(req,res){
                 //console.log(artistRemoved);
                 res.status(404).send({artistRemoved});
 
-                /*Album.find({artist: artistRemoved._id}).remove((err,albumRemoved) => {
+                Album.find({artist: artistRemoved._id}).remove((err,albumRemoved) => {
                     if(err){
                         res.status(500).send({message:'Error al eliminar el album'});
                     }else{
@@ -121,7 +121,7 @@ function deleteArtist(req,res){
                             });
                         }
                     }
-                });*/
+                });
             }
         }
     })
