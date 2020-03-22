@@ -27,7 +27,7 @@ export class AlbumEditComponent implements OnInit{
         private _route: ActivatedRoute,
         private _router: Router,
         private _userService: UserService,
-        private _albumService: AlbumService  
+        private _albumService: AlbumService
     ){
         this.titulo = 'Editar album';
         this.identity = this._userService.getIdentity();
@@ -38,7 +38,34 @@ export class AlbumEditComponent implements OnInit{
     }
 
     ngOnInit(){
-        console.log('album-add.component.ts cargado');
+        console.log('album-edit.component.ts cargado');
+        //conseguir el album
+
+        this.getAlbum();
+    }
+
+    getAlbum(){
+      this._route.params.forEach((params: Params) =>{
+        let id = params['id'];
+        this._albumService.getAlbum(this.token, id).subscribe(
+          response => {
+            if(!response.album){
+              this._router.navigate(['/']);
+            }else{
+              this.album = response.album;
+            }
+          },
+          error => {
+            var errorMessage = <any>error;
+            if(errorMessage != null){
+              var body = JSON.parse(error._body);
+
+              console.log(error);
+            }
+          }
+
+        )
+      });
     }
 
     onSubmit(){
@@ -46,7 +73,7 @@ export class AlbumEditComponent implements OnInit{
             let artist_id = params['artist'];
             this.album.artist = artist_id;
 
-            
+
             this._albumService.addAlbum(this.token, this.album).subscribe(
                         response => {
                             this.album = response.album;
@@ -72,6 +99,6 @@ export class AlbumEditComponent implements OnInit{
             );
 
         });
-        
+
     }
 }
