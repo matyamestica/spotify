@@ -51,14 +51,13 @@ export class AlbumDetailComponent implements OnInit{
                             if(!response.album){
                                 this._router.navigate(['/']);
                             }else{
-                                this.album = response.album;
-                            }   
+                                this.album = response.album;   
                                 //  Sacar las canciones 
                                 this._songService.getSongs(this.token, response.album._id).subscribe(
                                   response => {
 
                                     if(!response.songs){
-                                      this.alertMessage = "Este artista no tiene canciones";
+                                      this.alertMessage = "Este album no tiene canciones";
                                     }else{
                                       this.songs = response.songs;
                                       console.log(this.songs);
@@ -74,7 +73,7 @@ export class AlbumDetailComponent implements OnInit{
                                             console.log(error);
                                         }
                                 });
-                                                        
+                            }                                
                     },
                     error => {
                     var errorMessage = <any>error;
@@ -85,7 +84,7 @@ export class AlbumDetailComponent implements OnInit{
                     console.log(error);
                     }
                 }
-                );
+             );
         });
     }   
 }
