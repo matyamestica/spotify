@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GLOBAL } from '../services/global';
 import {UserService} from '../services/user.service';
 import {ArtistService} from '../services/artist.service';
+import {AlbumService} from '../services/album.service';
 import { Artist } from '../models/artist';
 import { Album } from '../models/album';
 
@@ -11,7 +12,7 @@ import { Album } from '../models/album';
 @Component({
     selector: 'artist-add',
     templateUrl: '../views/album-add.html',
-    providers: [UserService, ArtistService]
+    providers: [UserService, ArtistService, AlbumService]
 })
 
 export class AlbumAddComponent implements OnInit{
@@ -27,7 +28,8 @@ export class AlbumAddComponent implements OnInit{
         private _route: ActivatedRoute,
         private _router: Router,
         private _userService: UserService,
-        private _artistService: ArtistService  
+        private _artistService: ArtistService,
+        private _albumService: AlbumService  
     ){
         this.titulo = 'Crear nuevo album';
         this.identity = this._userService.getIdentity();
@@ -44,8 +46,32 @@ export class AlbumAddComponent implements OnInit{
         this._route.params.forEach((params: Params) =>{
             let artist_id = params['artist'];
             this.album.artist = artist_id;
+
             
-            console.log(this.album);
+            this._albumService.addAlbum(this.token, this.album).subscribe(
+                        response => {
+                            this.artist = response.artist;
+
+                            if(!response.album){
+                                this.alertMessage = 'Error en el servidor';
+                            }else{
+                                this.alertMessage = 'El album se ha creado correctamente';
+                                this.album = response.album;
+                                //this._router.navigate(['/editar-artista', response.artist._id]);
+                            }
+                        },
+                        error => {
+                        var errorMessage = <any>error;
+
+                        if(errorMessage != null){
+                        var body = JSON.parse(error._body);
+                        this.alertMessage = body.message;
+
+                        console.log(error);
+                        }
+                    }
+            );
+
         });
         
     }
