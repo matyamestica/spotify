@@ -79,3 +79,8 @@ html, body{
 .btn-logout{
   cursor: pointer;
 }
+#artist-list .artist-image{
+  border-radius: 100px;
+  
+
+}
