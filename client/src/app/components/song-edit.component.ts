@@ -101,7 +101,7 @@ export class SongEditComponent implements OnInit{
                           }else{
                                 //Subir el fichero de audio
                               // tslint:disable-next-line:max-line-length
-                              this._uploadService.makeFileRequest(this.url + 'upload-file-song/' + id, [], this.filesToUpload, this.token, 'file')
+                              this._uploadService.makeFileRequest(this.url + 'upload-file-song/' +id, [], this.filesToUpload, this.token, 'file')
                               .then(
                                   (result) => {
                                     this._router.navigate(['/album', response.song.album]);

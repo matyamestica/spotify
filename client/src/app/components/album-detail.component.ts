@@ -52,8 +52,8 @@ export class AlbumDetailComponent implements OnInit{
                                 this._router.navigate(['/']);
                             }else{
                                 this.album = response.album;
-                            }   
-                                //  Sacar las canciones 
+
+                                //  Sacar las canciones
                                 this._songService.getSongs(this.token, response.album._id).subscribe(
                                   response => {
 
@@ -74,18 +74,18 @@ export class AlbumDetailComponent implements OnInit{
                                             console.log(error);
                                         }
                                 });
-                                                        
+                              }
                     },
                     error => {
-                    var errorMessage = <any>error;
+                        var errorMessage = <any>error;
 
-                    if(errorMessage != null){
-                    var body = JSON.parse(error._body);
-                    //this.errorMessage = body.message;
-                    console.log(error);
+                        if(errorMessage != null){
+                            var body = JSON.parse(error._body);
+                            //this.errorMessage = body.message;
+                            console.log(error);
+                        }
                     }
-                }
-                );
+              );
         });
-    }   
+    }
 }
