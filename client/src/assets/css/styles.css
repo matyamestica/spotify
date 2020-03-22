@@ -101,7 +101,7 @@ html, body{
     height: 317px;
     border: 1px solid #444;
     margin-left: 20px;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
 }
 .artist-item .artist-image,
 .album-item .album-image{
@@ -197,4 +197,17 @@ html, body{
 
 .player .album-image img{
   height: 100%;
+}
+
+.player .audio-file{
+  width: 85%;
+  height: 40px;
+
+  margin-left: 10px;
+  float: left;
+}
+
+.player audio{
+  width: 100%;
+  height: 40px;
 }

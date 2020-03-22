@@ -17,6 +17,22 @@ import { Component, OnInit} from '@angular/core';
         </span>
 
       </div>
+      <div class="audio-file">
+        <p>Reproduciendo</p>
+        <span id="play-song-title">
+          {{song.name}}
+        </span>
+        |
+        <span id="play-song-artist">
+          <span *ngIf="song.artist">
+              {{song.album.artist.name}}
+          </span>
+        </span>
+        <audio controls id="player">
+            <source id="mp3-source" src="{{url+ 'get-song-file/' + song.file}}" type="audio/mpeg">
+            Tu navegador no es compatible
+        </audio>
+      </div>
 `
 
 
