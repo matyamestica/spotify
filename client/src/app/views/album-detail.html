@@ -5,7 +5,7 @@
             </div>
             <div class="data">
                 <h1>{{album.title}}</h1>
-                <p>{{album.artist.name}}</p>
+                <p><strong>{{album.artist.name}}</strong></p>
                 <p>{{album.year}}</p>
                 <p>{{album.description}}</p>
 
@@ -19,7 +19,19 @@
         <ul id="songs-list">
             <li *ngFor="let song of songs" class="song-item">
                 <div class="title">
+                    <a class="btn btn-success">
+                        <span class="glyphicon-play" aria-hidden="true"></span>
+                    </a>
                     {{song.number + '.'+ song.name + '-'+ song.duration}}
+                        <p>
+                            <a [routerLink]="['/editar-tema', song._id]" class="btn bnt-warning">
+                            Editar
+                        </a>
+                        <p>
+                            <a [routerLink]="['/editar-tema', song._id]" class="btn bnt-danger">
+                            Borrar
+                        </a>
+                    </p>
                 </div>
             </li>
         </ul>

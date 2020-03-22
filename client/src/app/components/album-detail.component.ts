@@ -28,8 +28,8 @@ export class AlbumDetailComponent implements OnInit{
         private _route: ActivatedRoute,
         private _router: Router,
         private _userService: UserService,
-        private _songService: SongService,
-        private _albumService: AlbumService
+        private _albumService: AlbumService,
+        private _songService: SongService
     ){
         this.identity = this._userService.getIdentity();
         this.token = this._userService.getToken();
@@ -57,11 +57,11 @@ export class AlbumDetailComponent implements OnInit{
                                 this._songService.getSongs(this.token, response.album._id).subscribe(
                                   response => {
 
-
                                     if(!response.songs){
-                                      this.alertMessage = "Este album no tiene canciones";
+                                      this.alertMessage = "Este artista no tiene canciones";
                                     }else{
                                       this.songs = response.songs;
+                                      console.log(this.songs);
                                         }
                                     },
                                     error => {
