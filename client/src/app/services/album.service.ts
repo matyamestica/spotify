@@ -9,8 +9,26 @@ import { Album } from 'app/models/album';
 export class AlbumService {
   public url: string;
 
- constructor(private _http: Http) {
+  constructor(private _http: Http) {
    this.url = GLOBAL.url;
+  }
+
+  getAlbums(token,artistId = null){
+      let headers = new Headers({
+      'Content-Type':'application/json',
+      'Authorization':token
+      });
+      let options = new RequestOptions({headers:headers});
+
+      if(artistId == null){
+        return this._http.get(this.url+'albums', options)
+                   .map(res => res.json());
+      }else{
+        return this._http.get(this.url+'albums/'+artistId, options)
+                   .map(res => res.json());
+      }
+
+
   }
 
   getAlbum(token, id:string){

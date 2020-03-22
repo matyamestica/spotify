@@ -1,3 +1,5 @@
+import { Album } from './../models/album';
+import { AlbumService } from './../services/album.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -7,14 +9,16 @@ import {ArtistService} from '../services/artist.service';
 import { Artist } from '../models/artist';
 
 
+
 @Component({
     selector: 'artist-detail',
     templateUrl: '../views/artist-detail.html',
-    providers: [UserService, ArtistService]
+    providers: [UserService, ArtistService, AlbumService]
 })
 
 export class ArtistDetailComponent implements OnInit{
     public artist: Artist;
+    public albums: Album[];
     public identity;
     public token;
     public url: string;
@@ -24,7 +28,8 @@ export class ArtistDetailComponent implements OnInit{
         private _route: ActivatedRoute,
         private _router: Router,
         private _userService: UserService,
-        private _artistService: ArtistService   
+        private _artistService: ArtistService,
+        private _albumService: AlbumService
     ){
         this.identity = this._userService.getIdentity();
         this.token = this._userService.getToken();
@@ -47,7 +52,17 @@ export class ArtistDetailComponent implements OnInit{
                                 this._router.navigate(['/']);
                             }else{
                                 this.artist = response.artist;
-                                //  Sacar los albums del artista  
+                                //  Sacar los albums del artista
+                                this._albumService.getAlbums(this.token, response.artist._id).subscribe(
+                                  response => {
+
+
+                                    if(!response.albums){
+                                      this.alertMessage = "Este artista no posee albums";
+                                    }else{
+                                      this.albums = response.albums;
+                                    }
+                                });
                             }
                     },
                     error => {
