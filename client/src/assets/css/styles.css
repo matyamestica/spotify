@@ -113,8 +113,8 @@ html, body{
 .img-artist{
   background: #eee;
   border-radius: 50px;
-  height: 125px;
-  width: 125px;
+  height: 150px;
+  width: 150px;
   border-radius: 20px;
   border: 4px solid rgb(241, 225, 0);
   margin: 0px auto;
@@ -131,6 +131,17 @@ html, body{
 .artist-item .artist-name a{
     color: white;
 
+}
+.image-solo-artist{
+    background: #0000;
+    border-radius: 50px;
+    height: 250px;
+    width: 250px;
+    border-radius: 20px;
+    border: 4px solid rgb(4, 0, 255);
+    margin: 0px auto;
+    margin-top: 15px;
+    overflow: hidden;
 }
 
 .artist-head-card .image{
