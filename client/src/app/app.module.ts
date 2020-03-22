@@ -14,7 +14,7 @@ import { AlbumAddComponent } from './components/album-add.component';
 import { AlbumEditComponent } from './components/album-edit.component';
 import { AlbumDetailComponent } from './components/album-detail.component';
 import { SongAddComponent } from './components/song-add.component';
-
+import { SongEditComponent } from './components/song-edit.component';
 
 
 
@@ -29,8 +29,9 @@ import { SongAddComponent } from './components/song-add.component';
     AlbumAddComponent,
     ArtistDetailComponent,
     AlbumDetailComponent,
-    AlbumEditComponent,
-    SongAddComponent
+    AlbumEditComponent, 
+    SongAddComponent,
+    SongEditComponent
   ],
   imports: [
     BrowserModule,
