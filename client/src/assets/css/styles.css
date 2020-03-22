@@ -155,3 +155,8 @@ html, body{
 .artist-head-card .image img{
     width: 150px;
 }
+
+.artist_image_for_edit img,
+.album_image_for_edit img{
+    width: 150px;
+}

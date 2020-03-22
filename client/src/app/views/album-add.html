@@ -35,6 +35,15 @@
                 El año es obligatorio
             </span>
         </p>
+        <div *ngIf="is_edit">
+            <div class="album_image_for_edit" *ngIf="album.image && album.image != 'null'">
+                <img src="{{ url + 'get-image-album/' + album.image }}" />
+            </div>
+            <p>
+                <label> Sube la imagen del album</label>
+                <input type="file" placeholder="Subir imagen..."(change)="fileChangeEvent($event)"/>
+            </p>
+        </div>
 
         <input type="submit" value="{{titulo}}" [disabled]="!formAlbum.form.valid" class="btn btn-success"/>
             
