@@ -156,6 +156,7 @@ html, body{
     overflow: hidden;
 }
 
+.artist-head-card .image,
 .artist-head-card .image{
     width: 130px;
     height: 130px;
@@ -164,6 +165,7 @@ html, body{
     margin-right: 30px;
 
 }
+.artist-head-card .image img,
 .artist-head-card .image img{
     width: 150px;
 }
