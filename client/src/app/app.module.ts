@@ -1,3 +1,4 @@
+import { PlayerComponent } from './components/player.component';
 import { HomeComponent } from './components/home.component';
 import { UserEditComponent } from './components/user-edit.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +19,7 @@ import { SongEditComponent } from './components/song-edit.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +31,10 @@ import { SongEditComponent } from './components/song-edit.component';
     AlbumAddComponent,
     ArtistDetailComponent,
     AlbumDetailComponent,
-    AlbumEditComponent, 
+    AlbumEditComponent,
     SongAddComponent,
-    SongEditComponent
+    SongEditComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,

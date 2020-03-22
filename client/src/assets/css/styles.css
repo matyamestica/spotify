@@ -174,3 +174,25 @@ html, body{
 .album_image_for_edit img{
     width: 150px;
 }
+
+
+
+.player{
+  background: #1C1C1F;
+  position: fixed;
+  width: 90.2%;
+  bottom: 0;
+  padding: 20px;
+  margin-left: -15px;
+  border-left: 1px solid #444;
+}
+.player .album-image{
+  float:left;
+  width: 138px;
+  height: 119px;
+  overflow: hidden;
+}
+
+.player .album-image img{
+  height: 100%;
+}

@@ -24,7 +24,7 @@ export class SongService {
             return this._http.get(this.url+'song/'+id, options)
                              .map(res => res.json());
   }
-  
+
 
   addSong(token, song: Song){
     let params = JSON.stringify(song);
@@ -33,7 +33,7 @@ export class SongService {
        'Authorization':token
     });
     console.log(params);
-    return this._http.post(this.url+'song', params, {headers: headers})
+    return this._http.post(this.url+'song/', params, {headers: headers})
                      .map(res => res.json());
 
     }
