@@ -77,7 +77,7 @@ export class AlbumEditComponent implements OnInit{
 
             this._albumService.editAlbum(this.token,id, this.album).subscribe(
             response => {
-                this.album = response.album;
+                //this.album = response.album;
                 //ESTO SE CAMBIO PORQUE ARROJABA ERROR EN LA CONSOLA DE CYGWIN, ORIGINALMENTE EL OBJETO ERA ARTIST
                 if(!response.album){
                     this.alertMessage = 'Error en el servidor';
