@@ -114,9 +114,9 @@ function deleteSong(req, res){
 function uploadFile(req, res){
     var songId = req.params.id;
     var file_name = 'no subido...';
-
-    if(req.files){
-        var file_path = req.files.file.path;
+    console.log(req);
+    if(req.files && req.files.image && req.files.image.path){
+        var file_path = req.files.image.path;
         var file_split = file_path.split('\\');
         var file_name = file_split[2];
 
@@ -143,6 +143,7 @@ function uploadFile(req, res){
 function getSongFile(req, res){
     var imageFile = req.params.songFile;
     var path_file = './uploads/songs/'+imageFile;
+    
     fs.exists(path_file, function(exists){
         if(exists){
             res.sendFile(path.resolve(path_file));
