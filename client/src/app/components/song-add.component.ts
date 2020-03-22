@@ -1,10 +1,11 @@
+import { Song } from './../models/song';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { GLOBAL } from '../services/global';
 import {UserService} from '../services/user.service';
 import {SongService} from '../services/song.service';
-import { Song } from '../models/song';
+
 
 
 @Component({
@@ -40,14 +41,14 @@ export class SongAddComponent implements OnInit{
     }
 
     onSubmit(){
-         
-   
+
+
         this._route.params.forEach((params: Params) =>{
             let album_id = params['album'];
             this.song.album = album_id;
-            console.log(this.song);
+            //console.log(this.song);
 
-     
+
             this._songService.addSong(this.token, this.song).subscribe(
                         response => {
                             //this.artist = response.artist;
@@ -74,5 +75,5 @@ export class SongAddComponent implements OnInit{
 
         });
 
-    }  
+    }
 }

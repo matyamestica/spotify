@@ -1,9 +1,10 @@
+import { Song } from './../models/song';
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
-import { Song } from 'app/models/song';
+
 
 @Injectable()
 export class SongService {
@@ -21,7 +22,7 @@ export class SongService {
 
             let options = new RequestOptions({headers: headers});
             return this._http.get(this.url+'song/'+id, options)
-                              .map(res => res.json());
+                             .map(res => res.json());
   }
 
   addSong(token, song: Song){
@@ -41,10 +42,10 @@ export class SongService {
                 'Content-Type':'application/json',
                 'Authorization':token
             });
-         
+
                  return this._http.put(this.url+'song/'+id, params, {headers: headers})
-                                 .map(res => res.json());
-         
+                                  .map(res => res.json());
+
                  }
 
 }

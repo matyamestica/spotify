@@ -27,7 +27,7 @@
     <p>
 
         <label>Duración</label>
-        <input type="text" #duration="ngModel" name="duration" [(ngModel)]="song.duration" 
+        <input type="text" #duration="ngModel" name="duration" [(ngModel)]="song.duration"
         required class="form-control"/>
         <span *ngIf="!duration.valid && duration.touched">
         La duración es obligatoria
@@ -37,7 +37,7 @@
     <div *ngIf="is_edit">
         <div class="song_file_for_edit" *ngIf="song.file && song.gile != 'null'">
             <audio controls>
-                <source src="{{ url + 'get-file-song/' + song.file }}" type="audio/mpeg">
+                <source src="{{url+'get-song-file/'+song.file}}" type="audio/mpeg">
                     El navegador web no soporta la reproducción de audio
             </audio>
         </div>

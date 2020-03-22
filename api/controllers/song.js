@@ -123,9 +123,9 @@ function uploadFile(req, res){
         var ext_split = file_name.split('\.');
         var file_ext = ext_split[1];
 
-        if(file_ext=='mp3' || file_ext=='jpg' || file_ext=='ogg' || file_ext=='m4a'){
-            Album.findByIdAndUpdate(songId, {file: file_name}, (err ,songUpdated) =>{
-                if(!albumUpdated){
+        if(file_ext=='mp3' || file_ext=='ogg' || file_ext=='m4a'){
+            Song.findByIdAndUpdate(songId, {file: file_name}, (err ,songUpdated) =>{
+                if(!songUpdated){
                     res.status(404).send({message:'No se ha podido actualizar la cancion'});
                 }else{
                     res.status(200).send({album: songUpdated});
@@ -136,7 +136,7 @@ function uploadFile(req, res){
         }
 
     }else{
-        res.status(200).send({message:'No has subido ninguna fichero de audio...'});
+        res.status(200).send({message:'No has subido ningun fichero de audio...'});
     }
 }
 
