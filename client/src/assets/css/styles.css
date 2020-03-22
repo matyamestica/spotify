@@ -5,6 +5,10 @@ html, body{
     background: #eee;
 }
 
+.central{
+    height: 100%;
+    overflow-y: scroll;
+}
 .head-title{
   font-size: 20px;
   font-weight: bold;
@@ -39,7 +43,7 @@ html, body{
   color: white;
 }
 
-.actived {
+.actived{
     margin: 0px;
     padding: 0px;
     height: 100%;
@@ -79,8 +83,64 @@ html, body{
 .btn-logout{
   cursor: pointer;
 }
-#artist-list .artist-image{
-  border-radius: 100px;
-  
 
+.artist-list{
+    margin: 0px;
+    padding: 0px;
+    margin-top: 30px;
+    list-style: none;
+}
+.artist-item{
+    width: 23%;
+    padding: 0px;
+    margin: 0px;
+    height: 317px;
+    border: 1px solid #444;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.artist-item .artist-image{
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    background: black;
+
+}
+.artist-item .artist-image img{
+    height: 50px;
+}
+
+.img-artist{
+  background: #eee;
+  border-radius: 50px;
+  height: 125px;
+  width: 125px;
+  border-radius: 20px;
+  border: 4px solid rgb(241, 225, 0);
+  margin: 0px auto;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.artist-item .artist-name {
+    color: white;
+    padding: 10px;
+    background: #222326;
+
+}
+.artist-item .artist-name a{
+    color: white;
+
+}
+
+.artist-head-card .image{
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    float: left;
+    margin-right: 30px;
+
+}
+.artist-head-card .image img{
+    width: 150px;
 }
