@@ -14,6 +14,24 @@ export class SongService {
    this.url = GLOBAL.url;
   }
 
+  getSongs(token, albumId = null){
+    let headers = new Headers({
+        'Content-Type':'application/json',
+        'Authorization':token
+    });
+
+    let options = new RequestOptions({headers: headers});
+    if(albumId = null){
+        return this._http.get(this.url+'songs', options)
+        .map(res => res.json());
+
+    }else{
+        return this._http.get(this.url+'songs/'+albumId, options)
+        .map(res => res.json());
+    }
+   
+}
+
   getSong(token, id: string){
             let headers = new Headers({
                 'Content-Type':'application/json',
@@ -47,6 +65,16 @@ export class SongService {
                                   .map(res => res.json());
 
                  }
+    deleteSong(token, id: string){
+        let headers = new Headers({
+        'Content-Type':'application/json',
+        'Authorization':token
+                    });
+        
+            let options = new RequestOptions({headers: headers});
+            return this._http.delete(this.url+'song/'+id, options)
+                       .map(res => res.json());
+          }             
 
 }
 

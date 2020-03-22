@@ -5,6 +5,7 @@
             </div>
             <div class="data">
                 <h1>{{album.title}}</h1>
+                <p>{{album.artist.name}}</p>
                 <p>{{album.year}}</p>
                 <p>{{album.description}}</p>
 
@@ -12,5 +13,16 @@
                     Añadir canción
                 </a>
             </div>
+    </div>
+    <div class="clearfix"></div>
+    <div id="gallery-songs" *ngIf="songs">
+        <ul id="songs-list">
+            <li *ngFor="let song of songs" class="song-item">
+                <div class="title">
+                    {{song.number + '.'+ song.name + '-'+ song.duration}}
+                </div>
+            </li>
+        </ul>
+
     </div>
 </div>
