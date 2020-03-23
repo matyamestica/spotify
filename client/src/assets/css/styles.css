@@ -109,9 +109,7 @@ html, body{
     width: 50px;
     overflow: hidden;
     background: black;
-
 }
-
 
 .album-item .album-image img{
         width: 100%;
@@ -120,7 +118,6 @@ html, body{
 .album-item{
     height: 357px;
 }
-
 
 .img-artist{
   background: #eee;
@@ -176,8 +173,6 @@ html, body{
 .album_image_for_edit img{
     width: 150px;
 }
-
-
 
 .player{
   background: #1C1C1F;
