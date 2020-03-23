@@ -21,7 +21,7 @@ export class SongService {
     });
 
     let options = new RequestOptions({headers: headers});
-    if(albumId = null){
+    if(albumId == null){
         return this._http.get(this.url+'songs', options)
                          .map(res => res.json());
 
