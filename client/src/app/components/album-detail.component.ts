@@ -118,4 +118,8 @@ export class AlbumDetailComponent implements OnInit{
                 }
         );
     }
+
+    startPlayer(song){
+        let song_player = JSON.stringify(song)
+    }
 }
