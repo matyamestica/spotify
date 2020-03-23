@@ -22,7 +22,7 @@ import { SongEditComponent } from './components/song-edit.component';
 
 const appRoutes: Routes = [
 
-    //{ path: '', component: HomeComponent },
+    { path: '', component: HomeComponent },
     { path: 'artistas/:page', component: ArtistListComponent },
     { path: 'crear-artista', component: ArtistAddComponent },
     { path: 'editar-artista/:id', component: ArtistEditComponent },
@@ -33,7 +33,7 @@ const appRoutes: Routes = [
     { path: 'crear-tema/:album', component: SongAddComponent },
     { path: 'editar-tema/:id', component: SongEditComponent},
     { path: 'mis-datos', component: UserEditComponent },
-    //{ path: '**', component: HomeComponent }
+    { path: '**', component: HomeComponent }
 ];
 
 export const appRoutingProviders: any[] = [];
