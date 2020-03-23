@@ -15,31 +15,31 @@
             </div>
     </div>
     <div class="clearfix"></div>
-    <div id="gallery-songs" *ngIf="songs">
-        <ul id="songs-list">
-            <li *ngFor="let song of songs" class="song-item">
-                <div class="title">
-                    <a class="btn btn-success" (click)="startPlayer(song)">
-                        <span class="fa fa-play" aria-hidden="true"></span>
-                    </a>
-                    {{song.number + '.'+ song.name + '-'+ song.duration}}
+        <div id="gallery-songs" *ngIf="songs">
+            <ul id="songs-list">
+                <li *ngFor="let song of songs" class="song-item">
+                    <div class="title">
+                        <a class="btn btn-success" (click)="startPlayer(song)">
+                            <span class="fa fa-play" aria-hidden="true"></span>
+                        </a>
+                        {{song.number + '.'+ song.name + '-'+ song.duration}}
 
-                     <a class="buttons" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
-                        <a [routerLink]="['/editar-tema', song._id]" class="btn btn-warning">
-                            Editar
+                        <a class="buttons" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                            <a [routerLink]="['/editar-tema', song._id]" class="btn btn-warning">
+                                Editar
+                            </a>
+                            <a (click)="onDeleteConfirm(song._id)" class="btn btn-danger">
+                                Borrar
+                            </a>
                         </a>
-                        <a (click)="onDeleteConfirm(song._id)" class="btn btn-danger">
-                            Borrar
+                    <a class="seguro" *ngIf="confirmado == song._id">
+                        <a (click)="onDeleteSong(song._id)" class="btn btn-danger">
+                            Eliminar
                         </a>
-                     </a>
-                <a class="seguro" *ngIf="confirmado == song._id">
-                    <a (click)="onDeleteSong(song._id)" class="btn btn-danger">
-                        Eliminar
-                    </a>
-                    <a (click)="onCancelSong()" class="btn btn-primary">
-                        Cancelar
-                    </a>
-                    </a>
+                        <a (click)="onCancelSong()" class="btn btn-primary">
+                            Cancelar
+                        </a>
+                        </a>
 
 
                 </div>
