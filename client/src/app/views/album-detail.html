@@ -23,15 +23,23 @@
                         <span class="fa fa-play" aria-hidden="true"></span>
                     </a>
                     {{song.number + '.'+ song.name + '-'+ song.duration}}
-                        <p>
-                            <a [routerLink]="['/editar-tema', song._id]" class="btn bnt-warning">
+
+                    <div class="buttons" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                        <a [routerLink]="['/editar-tema', song._id]" class="btn btn-warning">
                             Editar
                         </a>
-                        <p>
-                            <a [routerLink]="['/editar-tema', song._id]" class="btn bnt-danger">
+                        <a (click)="onDeleteConfirm(song._id)" class="btn btn-danger">
                             Borrar
                         </a>
-                    </p>
+                </div>
+                <div class="seguro" *ngIf="confirmado == song._id">
+                    <a (click)="onDeleteSong(song._id)" class="btn btn-danger">
+                        Eliminar
+                    </a>
+                    <a (click)="onCancelSong()" class="btn btn-primary">
+                        Cancelar
+                    </a>
+                    </div>
                 </div>
             </li>
         </ul>
