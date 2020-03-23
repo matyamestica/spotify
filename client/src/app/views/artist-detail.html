@@ -19,7 +19,7 @@
 
         <!--LISTAR LOS ALBUMS-->
         <ul class="album-list">
-            <li *ngFor="let album of albums" class="col-lg-4 album-item">
+            <td *ngFor="let album of albums" class="col-lg-4 album-item">
                 <div class="album-image">
                     <img src="{{ url + 'get-image-album/' + album.image }}"/>
                 </div>
@@ -42,7 +42,7 @@
                                 </a>
                     </div>
                 </div>
-                       
+
 
                         <div class="seguro" *ngIf="confirmado == album._id">
                             <a (click)="onDeleteAlbum(album._id)" class="btn btn-sm btn-danger">
@@ -52,7 +52,7 @@
                                 Cancelar
                             </a>
                         </div>
-            </li>
+            </td>
         </ul>
     </div>
 </div>
