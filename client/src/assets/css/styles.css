@@ -93,22 +93,22 @@ html, body{
     min-height: 800px;
 
 }
+
 .artist-item,
 .album-item{
     width: 23%;
-    padding: 0px;
     margin: 0px;
     height: 317px;
-    border: 1px solid #444;
+
     margin-left: 20px;
-    /*margin-top: 20px;*/
+    margin-top: 20px;
 }
 .artist-item .artist-image,
 .album-item .album-image{
     height: 50px;
     width: 50px;
     overflow: hidden;
-    background: black;
+    background: rgb(8, 54, 114);
 }
 
 .album-item .album-image img{
@@ -206,3 +206,17 @@ html, body{
   width: 100%;
   height: 40px;
 }
+
+.album-list .album-image{
+  background: rgb(255, 0, 140);
+  border-radius: 50px;
+  height: 150px;
+  width: 150px;
+  border-radius: 20px;
+  border: 4px solid #6610f2;
+  margin: 0px auto;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+

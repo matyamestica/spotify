@@ -17,10 +17,10 @@
     <div class="clearfix"></div>
     <div id="gallery-songs" *ngIf="songs">
         <ul id="songs-list">
-            <td *ngFor="let song of songs" class="song-item">
+            <li *ngFor="let song of songs" class="song-item">
                 <div class="title">
                     <a class="btn btn-success">
-                        <span class="glyphicon-play" aria-hidden="true"></span>
+                        <span class="fa fa-play" aria-hidden="true"></span>
                     </a>
                     {{song.number + '.'+ song.name + '-'+ song.duration}}
                         <p>
@@ -33,7 +33,7 @@
                         </a>
                     </p>
                 </div>
-            </td>
+            </li>
         </ul>
 
     </div>
